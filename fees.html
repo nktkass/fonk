@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>fonk — how fees work</title>
+<meta name="description" content="How fonk's fees work: every fee funds a live memecoin trading book on Solana DEXs, and realized profits are airdropped back to holders." />
+<link rel="icon" href="assets/fonk-logo.png?v=meme" />
+<link rel="stylesheet" href="styles.css?v=fonk5" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="index.html"><img src="assets/fonk-logo.png?v=meme" alt="fonk" /> fonk <span class="beta">v1.0</span></a>
+      <nav class="nav-links">
+        <a href="terminal.html">Terminal</a>
+        <a href="fees.html" class="active">Fees</a>
+        <a href="docs.html">Docs</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="nav-social">
+          <a href="https://x.com/0xVexei" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://github.com/0xvaxei" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+        <a class="btn ghost sm" href="docs.html">Docs</a>
+        <a class="btn primary sm" href="terminal.html">Launch terminal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- page hero -->
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">home</a> / fees</div>
+      <span class="eyebrow"><span class="dot"></span> 100% of fees go to work</span>
+      <h1>How fees work</h1>
+      <p>fonk doesn't pocket fees. Every fee is deployed as trading capital for memecoin swaps on Solana, and the
+        realized profit is airdropped back to holders. Here's the whole mechanism, end to end.</p>
+    </div>
+  </section>
+
+  <!-- fee at a glance -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="grid3">
+        <div class="panel"><h3>1.0%</h3><p>flat fee on each transaction. No tiers, no hidden spreads, no management fee.</p></div>
+        <div class="panel"><h3>100%</h3><p>of collected fees become live trading capital in fonk's Solana memecoin book.</p></div>
+        <div class="panel"><h3>80%</h3><p>of realized trading profit is airdropped back to holders every cycle.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- the flow -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag">the money flow</div>
+        <h2>Where every cent goes</h2>
+      </div>
+      <div class="feeflow">
+        <div class="node"><div class="ic">💸</div><h4>Fee collected</h4><p>1% of the transaction</p></div>
+        <div class="sep">→</div>
+        <div class="node"><div class="ic">🏦</div><h4>Trading treasury</h4><p>pooled as capital</p></div>
+        <div class="sep">→</div>
+        <div class="node"><div class="ic">📈</div><h4>Swapped on Solana</h4><p>live memecoin trades</p></div>
+        <div class="sep">→</div>
+        <div class="node win"><div class="ic">🪂</div><h4>Airdropped to holders</h4><p>80% of realized profit</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- interactive calculator -->
+  <section class="section" id="calculator">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag">interactive</div>
+        <h2>Fee &amp; airdrop calculator</h2>
+        <p>Move the numbers and see exactly how a fee turns into trading capital and airdrops.</p>
+      </div>
+
+      <div class="calc">
+        <div class="in">
+          <label for="amt">Transaction amount</label>
+          <div class="field"><span>$</span><input id="amt" type="number" value="10000" min="0" /></div>
+
+          <label for="feeRate">Fee rate — <span id="feeRateLbl" class="mono">1.0%</span></label>
+          <input id="feeRate" class="slider" type="range" min="0.25" max="3" step="0.25" value="1" />
+
+          <label for="ret">Assumed cycle return on capital — <span id="retLbl" class="mono">6.0%</span></label>
+          <input id="ret" class="slider" type="range" min="-10" max="25" step="0.5" value="6" />
+
+          <label for="split">Airdrop split to holders — <span id="splitLbl" class="mono">80%</span></label>
+          <input id="split" class="slider" type="range" min="0" max="100" step="5" value="80" />
+
+          <div class="callout" style="margin-top:22px">
+            <div class="ic">ℹ️</div>
+            <p><b>Illustrative only.</b> Returns are not guaranteed. Trading involves risk, including loss of capital.</p>
+          </div>
+        </div>
+        <div class="out">
+          <h5>Fee collected</h5>
+          <div class="big" id="oFee">$100.00</div>
+          <div class="orow"><span>Deployed as trading capital</span><b id="oCap">$100.00</b></div>
+          <div class="orow"><span>Projected cycle profit</span><b id="oProfit">$6.00</b></div>
+          <div class="orow"><span>Kept for treasury growth</span><b id="oKeep">$1.20</b></div>
+          <h5 style="margin-top:22px">Airdropped back to holders</h5>
+          <div class="big lime" id="oDrop">$4.80</div>
+          <div class="orow"><span>Effective rebate on your fee</span><b id="oRebate">4.8%</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- schedule table -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="sec-head"><div class="tag">reference</div><h2>Fee schedule</h2></div>
+      <table class="table">
+        <thead><tr><th>Action</th><th>Fee</th><th>Goes to</th></tr></thead>
+        <tbody>
+          <tr><td>Buy / sell transaction</td><td class="mono">1.0%</td><td>Trading treasury</td></tr>
+          <tr><td>Airdrop claim</td><td class="mono">$0.00</td><td>— (gas only)</td></tr>
+          <tr><td>Holding fonk</td><td class="mono">0.0%</td><td>No management fee</td></tr>
+          <tr><td>Withdrawal</td><td class="mono">0.0%</td><td>Non-custodial, always free</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- airdrop mechanics -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="grid2">
+        <div class="panel">
+          <h3>🪂 How airdrops are paid</h3>
+          <p>At the end of each cycle, fonk marks the realized profit of the fee-funded book. 80% of that
+            profit is converted and airdropped to holders <b>pro-rata by holdings</b>. The remaining 20%
+            compounds into the treasury so the book — and future airdrops — grow over time.</p>
+        </div>
+        <div class="panel">
+          <h3>🗓️ Airdrop cycle</h3>
+          <p>Cycles settle on a fixed cadence. A live countdown and the queued airdrop amount are shown in
+            the terminal. Airdrops are <b>non-custodial</b> — they settle directly to your wallet and never
+            pass through a third party.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="section tight" id="faq">
+    <div class="wrap">
+      <div class="sec-head"><div class="tag">questions</div><h2>Fee FAQ</h2></div>
+      <div class="faq">
+        <details open><summary>Does fonk keep any of my fee?</summary><div class="a">No. 100% of your fee becomes trading capital. fonk only ever grows from a share of the <em>profit</em> it generates, not from the fee itself.</div></details>
+        <details><summary>What if the book loses money in a cycle?</summary><div class="a">If a cycle is unprofitable there is no profit to airdrop, so no airdrop is paid that cycle. Risk caps and a treasury floor are designed to limit drawdowns, but losses are possible.</div></details>
+        <details><summary>Are there management or subscription fees?</summary><div class="a">None. There is no fee for holding, no fee to withdraw, and no subscription. The only fee is the flat per-transaction fee.</div></details>
+        <details><summary>How is my airdrop amount decided?</summary><div class="a">Airdrops are distributed pro-rata to your share of total holdings at the cycle snapshot. Hold more, receive a larger slice of the profit pool.</div></details>
+        <details><summary>Where can I see the trades?</summary><div class="a">The live terminal on the home page streams fonk's order flow, open positions and portfolio P&amp;L in real time.</div></details>
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <a class="btn primary" href="docs.html">Read the full docs →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-bottom">fonk · forked by stonkmarket · not investment advice · trading involves risk of loss</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

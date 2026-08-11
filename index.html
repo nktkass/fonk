@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>fonk — wallet</title>
+<meta name="description" content="fonk memecoin trading book · live treasury · 1,000 USDC" />
+<link rel="icon" href="assets/fonk-logo.png?v=meme" />
+<link rel="stylesheet" href="styles.css?v=fonk5" />
+</head>
+<body class="wallet-page">
+  <div class="bk-app wallet-full" id="wallet">
+    <div class="bk-shell">
+      <!-- left nav sidebar -->
+      <nav class="bk-sidebar" aria-label="App navigation">
+        <div class="bk-sidebar-head">
+          <a class="bk-brand" href="index.html">
+            <img src="assets/fonk-logo.png?v=meme" alt="fonk" />
+            <span>fonk</span>
+          </a>
+        </div>
+        <div class="bk-nav-group">
+          <div class="bk-nav-label">Agent</div>
+          <a class="bk-nav-item" href="terminal.html"><span class="bk-ic">◧</span> Terminal</a>
+          <span class="bk-nav-item active"><span class="bk-ic">▣</span> Wallet</span>
+          <span class="bk-nav-item muted"><span class="bk-ic">⇄</span> Trade <em class="bk-tag">soon</em></span>
+        </div>
+        <div class="bk-nav-group">
+          <div class="bk-nav-label">Book</div>
+          <span class="bk-nav-item muted"><span class="bk-ic">◎</span> Your Tokens</span>
+          <span class="bk-nav-item muted"><span class="bk-ic">▤</span> Memecoins <em class="bk-tag warn" id="navEqCount">0</em></span>
+        </div>
+        <div class="bk-nav-group">
+          <div class="bk-nav-label">Site</div>
+          <a class="bk-nav-item" href="fees.html"><span class="bk-ic">%</span> Fees</a>
+          <a class="bk-nav-item" href="docs.html"><span class="bk-ic">≡</span> Docs</a>
+        </div>
+        <div class="bk-sidebar-foot">
+          <span class="badge-pre bk-hidden" id="phaseBadge" hidden aria-live="polite"></span>
+          <div class="bk-social">
+            <a class="bk-social-link" href="https://x.com/0xVexei" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="bk-social-link" href="https://github.com/0xvaxei" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- main wallet area -->
+      <div class="bk-main">
+        <div class="bk-top-tabs" role="tablist">
+          <button type="button" class="bk-top-tab active" role="tab" data-tab="portfolio" aria-selected="true">Portfolio</button>
+          <button type="button" class="bk-top-tab" role="tab" data-tab="orders" aria-selected="false">Orders</button>
+          <button type="button" class="bk-top-tab" role="tab" data-tab="positions" aria-selected="false">Positions</button>
+          <button type="button" class="bk-top-tab" role="tab" data-tab="activity" aria-selected="false">Activity</button>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="bk-main-pane active" id="pane-portfolio" role="tabpanel">
+          <div class="bk-wallet-body">
+            <aside class="bk-aside">
+              <div class="bk-aside-balance">
+                <p class="bk-lbl">Your balance</p>
+                <p class="bk-balance-lg" id="bkBalanceLg">$1,000.00</p>
+              </div>
+
+              <div class="bk-mode-row">
+                <span class="bk-mode-lbl">Trading book</span>
+                <span class="bk-toggle" aria-hidden="true"><i></i></span>
+              </div>
+
+              <div class="bk-venues" id="bkVenues">
+                <button type="button" class="bk-venue active">
+                  <span class="bk-venue-id"><span class="bk-venue-dot usdc"></span> Treasury · USDC</span>
+                  <span class="bk-venue-val" id="venueUsdc">$1,000.00</span>
+                </button>
+                <button type="button" class="bk-venue">
+                  <span class="bk-venue-id"><span class="bk-venue-dot eq"></span> Memecoins</span>
+                  <span class="bk-venue-val" id="venueEq">$0.00</span>
+                </button>
+              </div>
+            </aside>
+
+            <div class="bk-panel">
+              <div class="bk-panel-meta">
+                <div class="bk-meta-row">
+                  <span class="bk-meta-k">Balance:</span>
+                  <span class="bk-meta-v" id="pfUsd">$1,000.00</span>
+                </div>
+                <div class="bk-meta-row">
+                  <span class="bk-meta-k">Trading Wallet:</span>
+                  <span class="bk-meta-v mono" id="walletAddr">0x7c…a1b</span>
+                </div>
+              </div>
+
+              <div class="bk-sub-tabs">
+                <button type="button" class="bk-sub-tab active" data-subtab="tokens">Stablecoins</button>
+                <button type="button" class="bk-sub-tab" data-subtab="memecoins">Memecoins</button>
+              </div>
+
+              <div class="bk-panel-toolbar">
+                <button type="button" class="bk-chain-sel" disabled>
+                  <span class="bk-venue-dot usdc"></span>
+                  <span>Treasury · USDC</span>
+                  <span class="bk-chev">▾</span>
+                </button>
+              </div>
+
+              <div class="bk-tab-pane active" id="pane-tokens">
+                <div class="bk-search">
+                  <span class="bk-search-ic" aria-hidden="true">⌕</span>
+                  <input type="search" placeholder="Search tokens" disabled aria-label="Search tokens" />
+                </div>
+                <div class="bk-table-wrap">
+                  <table class="bk-table">
+                    <thead>
+                      <tr>
+                        <th>Token</th>
+                        <th class="num">Balance</th>
+                        <th class="num">Value</th>
+                        <th class="num">PnL</th>
+                      </tr>
+                    </thead>
+                    <tbody id="holdings"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="bk-tab-pane" id="pane-memecoins">
+                <div class="bk-search">
+                  <span class="bk-search-ic" aria-hidden="true">⌕</span>
+                  <input type="search" placeholder="Search memecoins" disabled aria-label="Search memecoins" />
+                </div>
+                <div class="bk-empty" id="eqEmpty">
+                  <span class="bk-empty-ic">▤</span>
+                  <p>No memecoin positions yet</p>
+                  <span class="bk-empty-sub">fonk is warming up · <span id="eqCount">0</span> open</span>
+                </div>
+                <div class="bk-table-wrap bk-hidden" id="eqTableWrap">
+                  <table class="bk-table">
+                    <thead>
+                      <tr>
+                        <th>Token</th>
+                        <th class="num">Qty</th>
+                        <th class="num">Avg Entry</th>
+                        <th class="num">Last</th>
+                        <th class="num">Value</th>
+                        <th class="num">PnL</th>
+                      </tr>
+                    </thead>
+                    <tbody id="eqHoldings"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="bk-panel-foot">
+                <span class="bk-foot-item">Total book <strong id="pfVal">1,000.00 USDC</strong></span>
+                <span class="bk-foot-item">Since inception <strong class="chg" id="pfChg">0.00 (0.00%)</strong></span>
+                <span class="bk-foot-item muted"><span id="tradeCount">0</span> trades · $0 airdropped</span>
+                <span class="bk-foot-item muted bk-disclaimer">not investment advice · trading involves risk of loss</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders -->
+        <div class="bk-main-pane" id="pane-orders" role="tabpanel" hidden>
+          <div class="bk-explorer">
+            <div class="bk-explorer-head">
+              <h2 class="bk-explorer-title">Order flow</h2>
+              <span class="bk-explorer-meta" id="ordersMeta">0 orders</span>
+            </div>
+            <div class="bk-explorer-toolbar">
+              <div class="bk-search bk-search-sm">
+                <span class="bk-search-ic" aria-hidden="true">⌕</span>
+                <input type="search" id="ordersFilter" placeholder="Filter orders…" aria-label="Filter orders" />
+              </div>
+            </div>
+            <div class="bk-explorer-body">
+              <div class="bk-empty bk-explorer-empty" id="ordersEmpty">
+                <span class="bk-empty-ic">◫</span>
+                <p>No orders yet</p>
+                <span class="bk-empty-sub">fonk is warming up — first trades appear shortly</span>
+              </div>
+              <div class="bk-table-wrap bk-explorer-table bk-hidden" id="ordersTableWrap">
+                <table class="bk-table bk-explorer-grid">
+                  <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Side</th>
+                      <th>Token</th>
+                      <th class="num">Qty</th>
+                      <th class="num">Price</th>
+                      <th class="num">Notional</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ordersBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Positions -->
+        <div class="bk-main-pane" id="pane-positions" role="tabpanel" hidden>
+          <div class="bk-explorer">
+            <div class="bk-explorer-head">
+              <h2 class="bk-explorer-title">Open positions</h2>
+              <span class="bk-explorer-meta" id="positionsMeta">0 open · $0.00 deployed</span>
+            </div>
+            <div class="bk-explorer-toolbar">
+              <div class="bk-search bk-search-sm">
+                <span class="bk-search-ic" aria-hidden="true">⌕</span>
+                <input type="search" id="positionsFilter" placeholder="Filter positions…" aria-label="Filter positions" />
+              </div>
+            </div>
+            <div class="bk-explorer-body">
+              <div class="bk-empty bk-explorer-empty" id="positionsEmpty">
+                <span class="bk-empty-ic">▤</span>
+                <p>No open memecoin positions</p>
+                <span class="bk-empty-sub">Positions appear here as fonk starts buying</span>
+              </div>
+              <div class="bk-table-wrap bk-explorer-table bk-hidden" id="positionsTableWrap">
+                <table class="bk-table bk-explorer-grid">
+                  <thead>
+                    <tr>
+                      <th>Token</th>
+                      <th class="num">Qty</th>
+                      <th class="num">Avg Entry</th>
+                      <th class="num">Last</th>
+                      <th class="num">Unrealized PnL</th>
+                      <th class="num">Allocation</th>
+                    </tr>
+                  </thead>
+                  <tbody id="positionsBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity -->
+        <div class="bk-main-pane" id="pane-activity" role="tabpanel" hidden>
+          <div class="bk-explorer">
+            <div class="bk-explorer-head">
+              <h2 class="bk-explorer-title">Activity log</h2>
+              <span class="bk-explorer-meta" id="activityMeta">0 events</span>
+            </div>
+            <div class="bk-explorer-toolbar">
+              <div class="bk-search bk-search-sm">
+                <span class="bk-search-ic" aria-hidden="true">⌕</span>
+                <input type="search" id="activityFilter" placeholder="Filter activity…" aria-label="Filter activity" />
+              </div>
+            </div>
+            <div class="bk-explorer-body">
+              <div class="bk-empty bk-explorer-empty" id="activityEmpty">
+                <span class="bk-empty-ic">≡</span>
+                <p>No activity yet</p>
+                <span class="bk-empty-sub">Order fills, position changes, and fees will log here</span>
+              </div>
+              <div class="bk-activity-list bk-hidden" id="activityList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

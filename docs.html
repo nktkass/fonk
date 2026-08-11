@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>fonk — documentation</title>
+<meta name="description" content="Documentation for fonk, the autonomous AI trading agent: how it works, the trading engine, fees, airdrops, commands, architecture and security." />
+<link rel="icon" href="assets/fonk-logo.png?v=meme" />
+<link rel="stylesheet" href="styles.css?v=fonk5" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="index.html"><img src="assets/fonk-logo.png?v=meme" alt="fonk" /> fonk <span class="beta">v1.0</span></a>
+      <nav class="nav-links">
+        <a href="terminal.html">Terminal</a>
+        <a href="fees.html">Fees</a>
+        <a href="docs.html" class="active">Docs</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="nav-social">
+          <a href="https://x.com/0xVexei" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://github.com/0xvaxei" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+        <a class="btn ghost sm" href="fees.html">Fees</a>
+        <a class="btn primary sm" href="terminal.html">Launch terminal</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">home</a> / docs</div>
+      <span class="eyebrow"><span class="dot"></span> v1.0 documentation</span>
+      <h1>Documentation</h1>
+      <p>Everything about how fonk trades, charges fees, and pays airdrops. Start at the top, or jump to a section.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="docs">
+      <!-- sidebar -->
+      <aside class="docs-side" id="docnav">
+        <div class="grp">
+          <h6>Start here</h6>
+          <a href="#overview">Overview</a>
+          <a href="#quickstart">Quickstart</a>
+          <a href="#how">How fonk works</a>
+        </div>
+        <div class="grp">
+          <h6>Mechanics</h6>
+          <a href="#engine">Trading engine</a>
+          <a href="#fees">Fees</a>
+          <a href="#airdrops">Airdrops</a>
+        </div>
+        <div class="grp">
+          <h6>Interface</h6>
+          <a href="#commands">Commands</a>
+          <a href="#architecture">Architecture</a>
+        </div>
+        <div class="grp">
+          <h6>Trust</h6>
+          <a href="#security">Security</a>
+          <a href="#risk">Risk</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </aside>
+
+      <!-- content -->
+      <main class="docs-main">
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>fonk is an <b>autonomous AI memecoin trading agent</b>. It manages a live memecoin book on Solana DEXs
+            without a human in the loop: it reads market data, sizes positions, routes swaps, manages risk, and
+            books profit on its own.</p>
+          <p>The book is funded by <b>fees</b>. Every transaction pays a flat 1% fee that becomes trading capital.
+            When fonk books a profit, the majority is <b>airdropped back to holders</b>. The rest compounds so
+            the book grows over time.</p>
+          <div class="callout"><div class="ic">🍳</div><p><b>The one-liner:</b> fees fund the book, the agent trades the book, and profits are airdropped to the people holding.</p></div>
+        </section>
+
+        <section id="quickstart">
+          <h2>Quickstart</h2>
+          <ol>
+            <li>Hold <code>$FONK</code> in a supported wallet.</li>
+            <li>Open the <a href="index.html#terminal">live terminal</a> to watch the book trade in real time.</li>
+            <li>At the end of each cycle, claim your airdrop — it settles straight to your wallet.</li>
+          </ol>
+          <div class="codeblock"><span class="c"># check your projected airdrop for the current cycle</span><br /><span class="k">fonk</span> airdrop --status <span class="s">--wallet 0x…</span></div>
+        </section>
+
+        <section id="how">
+          <h2>How fonk works</h2>
+          <p>fonk runs a continuous loop. Each pass through the loop is a decision cycle measured in seconds:</p>
+          <div class="codeblock">
+<span class="c">// simplified agent loop — markets never close</span><br />
+<span class="k">while</span> (true) {<br />
+&nbsp;&nbsp;const signals = perceive(memeMarketData);<br />
+&nbsp;&nbsp;const plan&nbsp;&nbsp;&nbsp;= strategy.decide(signals, book, riskLimits);<br />
+&nbsp;&nbsp;const swaps&nbsp;&nbsp;= risk.check(plan);<br />
+&nbsp;&nbsp;jupiter.execute(swaps);<br />
+&nbsp;&nbsp;book.mark(); ledger.record();<br />
+}
+          </div>
+          <h3>1. Perceive</h3>
+          <p>Ingests prices, volume, liquidity and momentum across a watchlist of Solana memecoins.</p>
+          <h3>2. Decide</h3>
+          <p>A momentum + mean-reversion strategy proposes target positions, ranked by expected edge and liquidity.</p>
+          <h3>3. Risk-check</h3>
+          <p>Proposed swaps are filtered through per-token caps, portfolio drawdown guards, slippage limits and the treasury floor.</p>
+          <h3>4. Execute &amp; record</h3>
+          <p>Approved swaps are routed via Jupiter on Solana. Fills, P&amp;L and fee/airdrop accounting are written to the ledger.</p>
+        </section>
+
+        <section id="engine">
+          <h2>Trading engine <span class="pill-tag">core</span></h2>
+          <p>The engine trades a rotating set of liquid Solana memecoins. It is built around three modules:</p>
+          <table class="table">
+            <thead><tr><th>Module</th><th>Job</th><th>Cadence</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">signal</td><td>Scores momentum, flow &amp; mean-reversion opportunities</td><td class="mono">~1s</td></tr>
+              <tr><td class="mono">sizer</td><td>Converts scores into risk-weighted target sizes</td><td class="mono">per signal</td></tr>
+              <tr><td class="mono">executor</td><td>Routes / retries swaps via Jupiter aggregators</td><td class="mono">event-driven</td></tr>
+            </tbody>
+          </table>
+          <p>All positions are spot memecoins — no leverage, no perps, no options in v1.0.</p>
+        </section>
+
+        <section id="fees">
+          <h2>Fees</h2>
+          <p>A flat <b>1%</b> fee applies to each transaction and becomes trading capital. There are no management,
+            holding or withdrawal fees. For the full breakdown and an interactive calculator, see the dedicated page.</p>
+          <div class="codeblock"><span class="c"># fee → capital → profit → airdrop</span><br />fee&nbsp;&nbsp;&nbsp;&nbsp;= amount * 0.01<br />capital = fee&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c">// 100% deployed</span><br />profit&nbsp;= capital * cycleReturn<br />airdrop = profit&nbsp;* 0.80&nbsp;&nbsp;<span class="c">// 80% to holders</span></div>
+          <p><a href="fees.html" style="color:var(--text);font-weight:600;text-decoration:underline">Open the fee page &amp; calculator →</a></p>
+        </section>
+
+        <section id="airdrops">
+          <h2>Airdrops</h2>
+          <p>At each cycle snapshot, realized profit is measured and 80% is distributed to holders
+            <b>pro-rata</b> by holdings. Airdrops are non-custodial and settle directly to your wallet.</p>
+          <ul>
+            <li><b>Snapshot:</b> holdings are recorded at the cycle close.</li>
+            <li><b>Split:</b> 80% to holders, 20% compounded into the treasury.</li>
+            <li><b>Claim:</b> gas-only; no protocol fee to claim.</li>
+          </ul>
+          <div class="callout"><div class="ic">🪂</div><p><b>Hold to eat.</b> Your share of each airdrop scales with the size of your holding at the snapshot.</p></div>
+        </section>
+
+        <section id="commands">
+          <h2>Commands</h2>
+          <p>Query fonk from the CLI or chat interface:</p>
+          <table class="table">
+            <thead><tr><th>Command</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">fonk status</td><td>Live portfolio value, day P&amp;L and open positions</td></tr>
+              <tr><td class="mono">fonk positions</td><td>Full open-position breakdown</td></tr>
+              <tr><td class="mono">fonk airdrop --status</td><td>Your projected airdrop this cycle</td></tr>
+              <tr><td class="mono">fonk fees --estimate</td><td>Estimate the fee &amp; rebate on an amount</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="architecture">
+          <h2>Architecture</h2>
+          <p>fonk is split into an agent brain, a risk layer, and a DEX router:</p>
+          <div class="codeblock">
+meme data ──▶ <span class="k">agent</span> ──▶ <span class="k">risk layer</span> ──▶ <span class="k">DEX router</span> ──▶ Jupiter / Solana<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─────────▶ <span class="k">ledger</span> ──▶ airdrop engine ──▶ holders
+          </div>
+          <p>The <b>ledger</b> is the source of truth for fees collected, P&amp;L realized and airdrops owed.</p>
+        </section>
+
+        <section id="security">
+          <h2>Security</h2>
+          <ul>
+            <li><b>Non-custodial:</b> fonk never holds holder keys. It controls only its own trading treasury.</li>
+            <li><b>Scoped wallet access:</b> the treasury wallet is limited to swap actions on approved DEX routes.</li>
+            <li><b>Hard risk limits:</b> per-token caps, slippage guards, drawdown limits and a treasury floor are enforced before any swap is sent.</li>
+            <li><b>Transparent ledger:</b> fees, P&amp;L and airdrops are auditable.</li>
+          </ul>
+        </section>
+
+        <section id="risk">
+          <h2>Risk</h2>
+          <div class="callout"><div class="ic">⚠️</div><p><b>Trading involves risk of loss.</b> Past performance does not guarantee future results. fonk is an autonomous experiment; cycles can be unprofitable, in which case no airdrop is paid. Nothing here is investment advice.</p></div>
+        </section>
+
+        <section id="faq">
+          <h2>FAQ</h2>
+          <div class="faq">
+            <details open><summary>Is fonk affiliated with Jupiter or Solana?</summary><div class="a">No. fonk routes swaps <em>through</em> Solana DEXs (via aggregators like Jupiter) but is an independent agent and is not affiliated with or endorsed by Jupiter, Solana Labs, or any token issuer.</div></details>
+            <details><summary>Do I need to do anything for airdrops?</summary><div class="a">Just hold. At each cycle snapshot your pro-rata airdrop is calculated automatically; you only pay gas to claim.</div></details>
+            <details><summary>What does fonk trade?</summary><div class="a">Solana memecoins, spot-only in v1.0. No leverage, perps or options.</div></details>
+            <details><summary>Can I withdraw anytime?</summary><div class="a">Yes. Holdings are non-custodial and there is no withdrawal fee or lockup.</div></details>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-bottom">fonk · forked by stonkmarket · not investment advice · trading involves risk of loss</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
