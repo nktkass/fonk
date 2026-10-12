@@ -1,5 +1,5 @@
 /* ============================================================
-   alon smith — front-end interactions
+   A1on — front-end interactions
    Home terminal simulation · fee calculator · docs scrollspy
    ============================================================ */
 (function () {
@@ -83,8 +83,8 @@
     const TRADE_TICKERS = ['WIF', 'BONK', 'PEPE', 'DOGE', 'POPCAT', 'BRETT', 'PNUT', 'GOAT', 'FARTCOIN', 'MEW'];
     const MIN_CASH_RESERVE = 40;
     const FEE_RATE = 0.001; // 0.1% per trade
-    const STORAGE_KEY = 'alon-wallet-state';
-    const STORAGE_VERSION = 4; // v4: alon smith rebrand
+    const STORAGE_KEY = 'a1on-wallet-state';
+    const STORAGE_VERSION = 5; // v5: A1on rebrand
 
     const prices = {};
     TRADE_TICKERS.forEach((t) => { prices[t] = memePrice(t); });
@@ -143,7 +143,7 @@
         }
         return true;
       } catch (err) {
-        console.warn('[alon-wallet] Failed to load persisted state:', err);
+        console.warn('[a1on-wallet] Failed to load persisted state:', err);
         return false;
       }
     }
@@ -152,7 +152,7 @@
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeWalletState()));
       } catch (err) {
-        console.warn('[alon-wallet] Failed to save state (continuing in-memory):', err);
+        console.warn('[a1on-wallet] Failed to save state (continuing in-memory):', err);
       }
     }
 
@@ -626,7 +626,7 @@
     const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
     const pad = (s, n) => (s + ' '.repeat(n)).slice(0, n);
     function printLines(lines) { lines.forEach((l) => print(l)); }
-    function echo(cmd) { print(`<span class="prompt">alon@core:~$</span> <span class="cmd">${esc(cmd)}</span>`); }
+    function echo(cmd) { print(`<span class="prompt">a1on@core:~$</span> <span class="cmd">${esc(cmd)}</span>`); }
 
     function sessionTime() {
       const s = Math.floor((Date.now() - bootTime) / 1000);
@@ -646,7 +646,7 @@
           '  <span class="cmd">airdrop</span>           current cycle airdrop &amp; countdown',
           '  <span class="cmd">fees &lt;amount&gt;</span>     estimate fee, capital &amp; airdrop rebate',
           '  <span class="cmd">price &lt;token&gt;</span>      quote for a memecoin',
-          '  <span class="cmd">about</span>             what alon smith is',
+          '  <span class="cmd">about</span>             what A1on is',
           '  <span class="cmd">docs</span>              open the documentation',
           '  <span class="cmd">clear</span>             clear the screen',
         ]);
@@ -705,7 +705,7 @@
       },
       about() {
         printLines([
-          '<span class="cmd">alon smith</span> — an autonomous AI memecoin trading agent.',
+          '<span class="cmd">A1on</span> — an autonomous AI memecoin trading agent.',
           'will trade memecoins on Solana DEXs 24/7 and airdrop the profits back to holders.',
           'fees fund the book · the agent apes the book · profits go to the people holding.',
           '<span class="muted">treasury seeded with 1,000 USDC · trading not active yet.</span>',
@@ -727,7 +727,7 @@
       if (!line) return;
       echo(line);
       let parts = line.split(/\s+/);
-      if (parts[0].toLowerCase() === 'alon') parts = parts.slice(1); // allow "alon status"
+      if (parts[0].toLowerCase() === 'a1on') parts = parts.slice(1); // allow "a1on status"
       const name = (parts[0] || '').toLowerCase().replace(/^--/, '');
       const args = parts.slice(1).filter((a) => !/^--/.test(a)); // ignore flags like --estimate/--status
       const cmd = resolve(name);
@@ -754,7 +754,7 @@
 
     // --- boot ---
     printLines([
-      '<span class="muted">alon smith core v1.0 — autonomous memecoin agent</span>',
+      '<span class="muted">A1on core v1.0 — autonomous memecoin agent</span>',
       '<span class="muted">● treasury 1,000.00 USDC · Solana DEXs · standby</span>',
       'type <span class="cmd">help</span> to see commands.',
       '&nbsp;',
