@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>fonk — documentation</title>
-<meta name="description" content="Documentation for fonk, the autonomous AI trading agent: how it works, the trading engine, fees, airdrops, commands, architecture and security." />
-<link rel="icon" href="assets/fonk-logo.png?v=meme" />
-<link rel="stylesheet" href="styles.css?v=fonk5" />
+<title>alon smith — documentation</title>
+<meta name="description" content="Documentation for alon smith, the autonomous AI trading agent: how it works, the trading engine, fees, airdrops, commands, architecture and security." />
+<link rel="icon" href="assets/alon-logo.png?v=alon" />
+<link rel="stylesheet" href="styles.css?v=alon1" />
 </head>
 <body>
   <header class="nav">
     <div class="nav-in">
-      <a class="brand" href="index.html"><img src="assets/fonk-logo.png?v=meme" alt="fonk" /> fonk <span class="beta">v1.0</span></a>
+      <a class="brand" href="index.html"><img src="assets/alon-logo.png?v=alon" alt="alon smith" /> alon smith <span class="beta">v1.0</span></a>
       <nav class="nav-links">
         <a href="terminal.html">Terminal</a>
         <a href="fees.html">Fees</a>
@@ -37,7 +37,7 @@
       <div class="crumbs"><a href="index.html">home</a> / docs</div>
       <span class="eyebrow"><span class="dot"></span> v1.0 documentation</span>
       <h1>Documentation</h1>
-      <p>Everything about how fonk trades, charges fees, and pays airdrops. Start at the top, or jump to a section.</p>
+      <p>Everything about how alon smith trades, charges fees, and pays airdrops. Start at the top, or jump to a section.</p>
     </div>
   </section>
 
@@ -49,7 +49,7 @@
           <h6>Start here</h6>
           <a href="#overview">Overview</a>
           <a href="#quickstart">Quickstart</a>
-          <a href="#how">How fonk works</a>
+          <a href="#how">How alon smith works</a>
         </div>
         <div class="grp">
           <h6>Mechanics</h6>
@@ -74,11 +74,11 @@
       <main class="docs-main">
         <section id="overview">
           <h2>Overview</h2>
-          <p>fonk is an <b>autonomous AI memecoin trading agent</b>. It manages a live memecoin book on Solana DEXs
+          <p>alon smith is an <b>autonomous AI memecoin trading agent</b>. It manages a live memecoin book on Solana DEXs
             without a human in the loop: it reads market data, sizes positions, routes swaps, manages risk, and
             books profit on its own.</p>
           <p>The book is funded by <b>fees</b>. Every transaction pays a flat 1% fee that becomes trading capital.
-            When fonk books a profit, the majority is <b>airdropped back to holders</b>. The rest compounds so
+            When alon smith books a profit, the majority is <b>airdropped back to holders</b>. The rest compounds so
             the book grows over time.</p>
           <div class="callout"><div class="ic">🍳</div><p><b>The one-liner:</b> fees fund the book, the agent trades the book, and profits are airdropped to the people holding.</p></div>
         </section>
@@ -86,16 +86,16 @@
         <section id="quickstart">
           <h2>Quickstart</h2>
           <ol>
-            <li>Hold <code>$FONK</code> in a supported wallet.</li>
+            <li>Hold <code>$ALON</code> in a supported wallet.</li>
             <li>Open the <a href="index.html#terminal">live terminal</a> to watch the book trade in real time.</li>
             <li>At the end of each cycle, claim your airdrop — it settles straight to your wallet.</li>
           </ol>
-          <div class="codeblock"><span class="c"># check your projected airdrop for the current cycle</span><br /><span class="k">fonk</span> airdrop --status <span class="s">--wallet 0x…</span></div>
+          <div class="codeblock"><span class="c"># check your projected airdrop for the current cycle</span><br /><span class="k">alon</span> airdrop --status <span class="s">--wallet 0x…</span></div>
         </section>
 
         <section id="how">
-          <h2>How fonk works</h2>
-          <p>fonk runs a continuous loop. Each pass through the loop is a decision cycle measured in seconds:</p>
+          <h2>How alon smith works</h2>
+          <p>alon smith runs a continuous loop. Each pass through the loop is a decision cycle measured in seconds:</p>
           <div class="codeblock">
 <span class="c">// simplified agent loop — markets never close</span><br />
 <span class="k">while</span> (true) {<br />
@@ -152,21 +152,21 @@
 
         <section id="commands">
           <h2>Commands</h2>
-          <p>Query fonk from the CLI or chat interface:</p>
+          <p>Query alon smith from the CLI or chat interface:</p>
           <table class="table">
             <thead><tr><th>Command</th><th>Description</th></tr></thead>
             <tbody>
-              <tr><td class="mono">fonk status</td><td>Live portfolio value, day P&amp;L and open positions</td></tr>
-              <tr><td class="mono">fonk positions</td><td>Full open-position breakdown</td></tr>
-              <tr><td class="mono">fonk airdrop --status</td><td>Your projected airdrop this cycle</td></tr>
-              <tr><td class="mono">fonk fees --estimate</td><td>Estimate the fee &amp; rebate on an amount</td></tr>
+              <tr><td class="mono">alon status</td><td>Live portfolio value, day P&amp;L and open positions</td></tr>
+              <tr><td class="mono">alon positions</td><td>Full open-position breakdown</td></tr>
+              <tr><td class="mono">alon airdrop --status</td><td>Your projected airdrop this cycle</td></tr>
+              <tr><td class="mono">alon fees --estimate</td><td>Estimate the fee &amp; rebate on an amount</td></tr>
             </tbody>
           </table>
         </section>
 
         <section id="architecture">
           <h2>Architecture</h2>
-          <p>fonk is split into an agent brain, a risk layer, and a DEX router:</p>
+          <p>alon smith is split into an agent brain, a risk layer, and a DEX router:</p>
           <div class="codeblock">
 meme data ──▶ <span class="k">agent</span> ──▶ <span class="k">risk layer</span> ──▶ <span class="k">DEX router</span> ──▶ Jupiter / Solana<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br />
@@ -178,7 +178,7 @@ meme data ──▶ <span class="k">agent</span> ──▶ <span class="k">risk 
         <section id="security">
           <h2>Security</h2>
           <ul>
-            <li><b>Non-custodial:</b> fonk never holds holder keys. It controls only its own trading treasury.</li>
+            <li><b>Non-custodial:</b> alon smith never holds holder keys. It controls only its own trading treasury.</li>
             <li><b>Scoped wallet access:</b> the treasury wallet is limited to swap actions on approved DEX routes.</li>
             <li><b>Hard risk limits:</b> per-token caps, slippage guards, drawdown limits and a treasury floor are enforced before any swap is sent.</li>
             <li><b>Transparent ledger:</b> fees, P&amp;L and airdrops are auditable.</li>
@@ -187,15 +187,15 @@ meme data ──▶ <span class="k">agent</span> ──▶ <span class="k">risk 
 
         <section id="risk">
           <h2>Risk</h2>
-          <div class="callout"><div class="ic">⚠️</div><p><b>Trading involves risk of loss.</b> Past performance does not guarantee future results. fonk is an autonomous experiment; cycles can be unprofitable, in which case no airdrop is paid. Nothing here is investment advice.</p></div>
+          <div class="callout"><div class="ic">⚠️</div><p><b>Trading involves risk of loss.</b> Past performance does not guarantee future results. alon smith is an autonomous experiment; cycles can be unprofitable, in which case no airdrop is paid. Nothing here is investment advice.</p></div>
         </section>
 
         <section id="faq">
           <h2>FAQ</h2>
           <div class="faq">
-            <details open><summary>Is fonk affiliated with Jupiter or Solana?</summary><div class="a">No. fonk routes swaps <em>through</em> Solana DEXs (via aggregators like Jupiter) but is an independent agent and is not affiliated with or endorsed by Jupiter, Solana Labs, or any token issuer.</div></details>
+            <details open><summary>Is alon smith affiliated with Jupiter or Solana?</summary><div class="a">No. alon smith routes swaps <em>through</em> Solana DEXs (via aggregators like Jupiter) but is an independent agent and is not affiliated with or endorsed by Jupiter, Solana Labs, or any token issuer.</div></details>
             <details><summary>Do I need to do anything for airdrops?</summary><div class="a">Just hold. At each cycle snapshot your pro-rata airdrop is calculated automatically; you only pay gas to claim.</div></details>
-            <details><summary>What does fonk trade?</summary><div class="a">Solana memecoins, spot-only in v1.0. No leverage, perps or options.</div></details>
+            <details><summary>What does alon smith trade?</summary><div class="a">Solana memecoins, spot-only in v1.0. No leverage, perps or options.</div></details>
             <details><summary>Can I withdraw anytime?</summary><div class="a">Yes. Holdings are non-custodial and there is no withdrawal fee or lockup.</div></details>
           </div>
         </section>
@@ -205,7 +205,7 @@ meme data ──▶ <span class="k">agent</span> ──▶ <span class="k">risk 
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot-bottom">fonk · forked by stonkmarket · not investment advice · trading involves risk of loss</div>
+      <div class="foot-bottom">alon smith · forked by stonkmarket · not investment advice · trading involves risk of loss</div>
     </div>
   </footer>
 

@@ -1,29 +1,29 @@
 /* ============================================================
-   fonk — fomo-inspired dark trading theme
-   Deep navy/purple surfaces, blue accent, neon green/red PnL
+   alon smith — white + green light trading theme
+   Clean light surfaces, strong green accent, clear red PnL down
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
 
 :root{
-  /* fomo.family palette */
-  --bg:#060510;
-  --panel:#12111a;
-  --panel-2:#161522;
-  --inset:#0c0b14;
-  --text:#f7f7f7;
-  --text-2:#9899a3;
-  --muted:#9899a3;
-  --muted-dim:#474b52;
-  --line:rgba(203,208,235,.14);
-  --line-2:rgba(203,208,235,.08);
-  --acc:#516af6;
-  --acc-soft:#516af629;
-  --acc-2:#221d4b;
-  --green:#21c95e;
-  --green-soft:#21c95e33;
-  --red:#ff622e;
-  --red-soft:#ff622e33;
-  --warn:#ffc74f;
+  /* white / green palette */
+  --bg:#f7faf7;
+  --panel:#ffffff;
+  --panel-2:#eef6ef;
+  --inset:#f0f7f1;
+  --text:#0a1a0f;
+  --text-2:#4a6354;
+  --muted:#6b7f72;
+  --muted-dim:#9aada0;
+  --line:rgba(22,163,74,.16);
+  --line-2:rgba(22,163,74,.09);
+  --acc:#16a34a;
+  --acc-soft:#16a34a24;
+  --acc-2:#dcfce7;
+  --green:#16a34a;
+  --green-soft:#16a34a28;
+  --red:#dc2626;
+  --red-soft:#dc262628;
+  --warn:#d97706;
 
   /* legacy aliases so existing markup keeps resolving */
   --cream:var(--bg);
@@ -39,8 +39,8 @@
 
   --radius:14px;
   --radius-lg:18px;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.45);
-  --shadow-lg:0 1px 2px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.55);
+  --shadow:0 1px 2px rgba(10,26,15,.04),0 8px 24px rgba(10,26,15,.06);
+  --shadow-lg:0 1px 2px rgba(10,26,15,.05),0 16px 40px rgba(10,26,15,.08);
   --disp:"Inter Tight",system-ui,sans-serif;
   --body:"DM Mono",ui-monospace,Consolas,monospace;
   --mono:"DM Mono",ui-monospace,Consolas,monospace;
@@ -55,8 +55,8 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   background-image:
-    linear-gradient(rgba(203,208,235,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(203,208,235,.04) 1px,transparent 1px);
+    linear-gradient(rgba(22,163,74,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(22,163,74,.05) 1px,transparent 1px);
   background-size:38px 38px;
 }
 
@@ -93,7 +93,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);line-height:1.08;letter-spacing:-.01em;co
   background:transparent;color:var(--text)}
 .btn:hover{border-color:var(--text-2)}
 .btn.primary{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:500}
-.btn.primary:hover{background:#6b80f8;border-color:#6b80f8;transform:translateY(-1px)}
+.btn.primary:hover{background:#15803d;border-color:#15803d;transform:translateY(-1px)}
 .btn.lime{background:transparent;border-color:var(--line);color:var(--text)}
 .btn.lime:hover{background:var(--panel-2);border-color:var(--text-2)}
 .btn.ghost{background:transparent;border-color:var(--line);color:var(--text)}
@@ -111,7 +111,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);line-height:1.08;letter-spacing:-.01em;co
 @keyframes ticker{to{transform:translateX(-50%)}}
 
 /* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(6,5,16,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:50;background:rgba(247,250,247,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:22px;height:64px;max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:800;font-size:21px;color:var(--text)}
 .brand img{width:34px;height:34px;object-fit:cover;border-radius:50%;background:var(--acc-2)}
@@ -132,7 +132,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);line-height:1.08;letter-spacing:-.01em;co
 .hero-in-bk{grid-template-columns:minmax(280px,.85fr) minmax(0,1.35fr);align-items:start}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--text-2);
   background:var(--panel);border:1px solid var(--line);padding:6px 12px;border-radius:999px;margin-bottom:20px}
-.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px rgba(81,106,246,.2);animation:blip 1.6s infinite}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px rgba(22,163,74,.2);animation:blip 1.6s infinite}
 @keyframes blip{50%{opacity:.4}}
 .hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:800}
 .hero h1 .u{color:var(--text);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
@@ -143,8 +143,8 @@ h1,h2,h3,h4,h5{font-family:var(--disp);line-height:1.08;letter-spacing:-.01em;co
 .hero-badges div{font-size:12.5px;color:var(--muted);font-family:var(--mono)}
 .hero-badges b{font-family:var(--mono);display:block;font-size:19px;color:var(--text);font-weight:500}
 .hero-glow{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.08;z-index:-1}
-.hero-glow.p{background:#d4d4d4;top:-180px;right:16%}
-.hero-glow.l{background:#e5e5e5;bottom:-220px;left:-80px}
+.hero-glow.p{background:#bbf7d0;top:-180px;right:16%}
+.hero-glow.l{background:#dcfce7;bottom:-220px;left:-80px}
 
 /* ---------- terminal / trading dashboard panel ---------- */
 .terminal{background:var(--inset);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;color:var(--text);position:relative}
@@ -174,7 +174,7 @@ h1,h2,h3,h4,h5{font-family:var(--disp);line-height:1.08;letter-spacing:-.01em;co
 /* ---------- Bankr-style wallet terminal (landing hero) ---------- */
 .hero-copy{align-self:center}
 .badge-pre{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--text-2);background:var(--panel-2);border:1px solid var(--line);padding:3px 8px;border-radius:999px}
-.badge-pre.live{color:var(--green);background:var(--green-soft);border-color:rgba(33,201,94,.35)}
+.badge-pre.live{color:var(--green);background:var(--green-soft);border-color:rgba(22,163,74,.35)}
 
 .bk-app{background:var(--bg);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);overflow:hidden;min-height:min(72vh,560px);max-height:620px;display:flex;flex-direction:column}
 .bk-app:not(.wallet-full){min-height:min(72vh,560px);max-height:620px}
@@ -226,7 +226,7 @@ a.bk-nav-item:hover{background:var(--panel-2);color:var(--text)}
 .bk-balance-lg{font-family:var(--mono);font-size:clamp(24px,3vw,30px);font-weight:600;line-height:1.1;color:var(--text);margin-top:6px}
 .bk-mode-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;gap:8px}
 .bk-mode-lbl{font-family:var(--mono);font-size:13px;color:var(--text-2)}
-.bk-toggle{width:36px;height:20px;border-radius:999px;background:var(--acc-2);border:1px solid rgba(81,106,246,.35);padding:2px;flex-shrink:0}
+.bk-toggle{width:36px;height:20px;border-radius:999px;background:var(--acc-2);border:1px solid rgba(22,163,74,.35);padding:2px;flex-shrink:0}
 .bk-toggle i{display:block;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:none;margin-left:auto}
 
 .bk-venues{padding:4px 10px 8px;display:flex;flex-direction:column;gap:2px}
@@ -312,7 +312,7 @@ a.bk-nav-item:hover{background:var(--panel-2);color:var(--text)}
 .bk-side-buy{color:var(--green);font-weight:600}
 .bk-side-sell{color:var(--red);font-weight:600}
 .bk-status{font-size:12px;padding:2px 7px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);color:var(--text-2)}
-.bk-status.filled{color:var(--green);background:var(--green-soft);border-color:rgba(33,201,94,.35)}
+.bk-status.filled{color:var(--green);background:var(--green-soft);border-color:rgba(22,163,74,.35)}
 .bk-status.partial{color:var(--warn);background:var(--panel-2)}
 .bk-table tbody tr.bk-row-new{animation:bkRowIn .35s ease}
 @keyframes bkRowIn{from{opacity:0;background:var(--panel-2)}to{opacity:1;background:transparent}}
@@ -366,7 +366,7 @@ a.bk-nav-item:hover{background:var(--panel-2);color:var(--text)}
 .cta h2{font-size:clamp(24px,3.2vw,38px);font-weight:800}
 .cta p{color:var(--text-2);margin:12px 0 24px;font-size:16px;font-family:var(--mono)}
 .cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.cta .glow{position:absolute;width:300px;height:300px;border-radius:50%;background:#e5e5e5;filter:blur(90px);opacity:.35;top:-120px;right:-40px}
+.cta .glow{position:absolute;width:300px;height:300px;border-radius:50%;background:#bbf7d0;filter:blur(90px);opacity:.45;top:-120px;right:-40px}
 
 /* footer */
 .foot{border-top:1px solid var(--line);margin-top:20px;padding:44px 0 32px}
